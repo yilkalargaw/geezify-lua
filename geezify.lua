@@ -11,20 +11,17 @@ end
 function geezify_4digit(num)
    first2 = math.floor(num/100)
    second2 = num%100
-
+	
    if first2==0 then
       return geezify_2digit(second2)
    else
       return geezify_2digit(first2) ..'፻'.. geezify_2digit(second2)
    end
-   
-   
 end
 
 function split_every_4_digit(num)
 
    local a={}
-
    table.insert(a, string.sub(num,1, string.len(num)%4))
    
    for digits in string.gmatch(string.sub(num,(string.len(num)%4)+1 ,-1) ,"%d%d%d%d") do
