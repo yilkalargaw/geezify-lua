@@ -1,4 +1,4 @@
-  geezNumberTestData {
+geezNumberTestData = {
      {1, '፩'},
      {10, '፲'},
      {100, '፻'},
@@ -90,3 +90,6 @@
      {303030303, '፫፼፫፻፫፼፫፻፫'},
      {333333333, '፫፼፴፫፻፴፫፼፴፫፻፴፫'}
   }
+
+
+return geezNumberTestData
