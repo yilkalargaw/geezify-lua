@@ -1,4 +1,4 @@
-local geezify = require('geezify-lua')
+local geezify = require('geezify')
 local test_data = require('test_case')
 
 describe('geezify', function()
