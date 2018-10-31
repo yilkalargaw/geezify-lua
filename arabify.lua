@@ -24,49 +24,32 @@ arabify.numhash['፺'] = 90
 arabify.numhash[' '] = 0
 
 
+function arabify.arabify(str)
+   local splitted = arabify.split('፼',arabify.rollback(str))
+   local sum = 0
+   for i,v in ipairs(splitted) do
+      if v=='' then
+	 sum = sum + (0* 10000^(#splitted - i))
+      else
+	 sum = sum + (arabify.convert_upto10000(v)* 10000^(#splitted - i))
+      end
+   end
+   return math.floor(sum)
+end
 
-
-function arabify.split(inputstr, sep)
-        if sep == nil then
-                sep = "%s"
-        end
-        local t={} ; i=1
-	if sep=='' then
-	   for _, c in utf8.codes(inputstr) do
-	      table.insert(t, utf8.char(c))
-	   end
-	else
-	   for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-	      t[i] = str
-	      i = i + 1
-	   end
-	end
-	return t
+function arabify.rollback(str)
+   return  lua_utf8.gsub(lua_utf8.gsub(lua_utf8.gsub(str,'^፼', '፩፼'),'^፻', '፩፻'),'፼፻', '፼፩፻')
 end
 
 function arabify.split_by_10000s(str)
    return arabify.split(string.gsub(str,'፼$', '፼ '), '፼')
 end
 
-function arabify.convert_each_2_digit(arr)
-   local converted_arr={}
-   for _,v in ipairs(arr) do
-      table.insert(converted_arr, arabify.convert_2digit(v))
-   end
-   return converted_arr
-end
 
 function arabify.convert_2digit(str)
-   local  words = arabify.split(str,'')
-   return (arabify.numhash[words[1]] or 0) + (arabify.numhash[words[2]] or 0)
+   return (arabify.numhash[lua_utf8.sub(str,1,1)] or 0) + (arabify.numhash[lua_utf8.sub(str,2,2)] or 0)
 end
 
-
-function arabify.rollback(str)
-   return  arabify.separate_10000(
-      string.gsub(string.gsub(string.gsub(str,'፼፻', '፼፩፻'),'^፻', '፩፻'), '^፼', '፩፼')
-   )
-end
 
 function arabify.convert_upto10000(str)
    if type(str) == 'string' and utf8.len(str) <= 5 and nil == lua_utf8.match(str, '፼') then
@@ -82,11 +65,24 @@ function arabify.convert_upto10000(str)
    end
 end
 
-function arabify.separate_10000(str)
-   while string.match(str,'፼፼') do
-      str = string.gsub(str,'፼፼', '፼ ፼')
+function arabify.split(delimiter, text)
+   local list = {}
+   local pos = 1
+   if lua_utf8.find("", delimiter, 1) then
+      error("delimiter matches empty string!")
+   end                                            
+   while 1 do
+      local first, last = lua_utf8.find(text, delimiter, pos)
+      if first then 
+         table.insert(list, lua_utf8.sub(text, pos, first-1))
+         pos = last+1
+      else
+         table.insert(list, lua_utf8.sub(text, pos))
+         break
+      end
    end
-   return str
+   return list
 end
+
 
 return arabify
