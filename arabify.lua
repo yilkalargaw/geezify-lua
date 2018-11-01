@@ -41,15 +41,9 @@ function arabify.rollback(str)
    return  lua_utf8.gsub(lua_utf8.gsub(lua_utf8.gsub(str,'^፼', '፩፼'),'^፻', '፩፻'),'፼፻', '፼፩፻')
 end
 
-function arabify.split_by_10000s(str)
-   return arabify.split(string.gsub(str,'፼$', '፼ '), '፼')
-end
-
-
 function arabify.convert_2digit(str)
    return (arabify.numhash[lua_utf8.sub(str,1,1)] or 0) + (arabify.numhash[lua_utf8.sub(str,2,2)] or 0)
 end
-
 
 function arabify.convert_upto10000(str)
    if type(str) == 'string' and utf8.len(str) <= 5 and nil == lua_utf8.match(str, '፼') then
@@ -83,6 +77,5 @@ function arabify.split(delimiter, text)
    end
    return list
 end
-
 
 return arabify
