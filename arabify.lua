@@ -2,26 +2,12 @@ lua_utf8 = require 'lua-utf8'
 
 arabify = {}
 
-arabify.numhash =  {}
-arabify.numhash['፩'] = 1
-arabify.numhash['፪'] = 2
-arabify.numhash['፫'] = 3
-arabify.numhash['፬'] = 4
-arabify.numhash['፭'] = 5
-arabify.numhash['፮'] = 6
-arabify.numhash['፯'] = 7
-arabify.numhash['፰'] = 8
-arabify.numhash['፱'] = 9
-arabify.numhash['፲'] = 10
-arabify.numhash['፳'] = 20
-arabify.numhash['፴'] = 30
-arabify.numhash['፵'] = 40
-arabify.numhash['፶'] = 50
-arabify.numhash['፷'] = 60
-arabify.numhash['፸'] = 70
-arabify.numhash['፹'] = 80
-arabify.numhash['፺'] = 90
-arabify.numhash[' '] = 0
+arabify.numhash =  {
+   ['፩'] = 1, ['፪'] = 2, ['፫'] = 3, ['፬'] = 4,
+   ['፭'] = 5, ['፮'] = 6, ['፯'] = 7, ['፰'] = 8,
+   ['፱'] = 9, ['፲'] = 10, ['፳'] = 20, ['፴'] = 30,
+   ['፵'] = 40, ['፶'] = 50, ['፷'] = 60, ['፸'] = 70,
+   ['፹'] = 80, ['፺'] = 90, [' '] = 0 }
 
 
 function arabify.arabify(str)
