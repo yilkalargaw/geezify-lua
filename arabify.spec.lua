@@ -1,4 +1,4 @@
-local geezify = require('arabify')
+local arabify = require('arabify')
 local test_data = require('test_case')
 
 describe('arabify', function()
