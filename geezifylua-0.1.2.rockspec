@@ -12,7 +12,7 @@ description = {
      into arabic numbers. It also allows for the conversion to occur the other
      way (i.e. Arabic to Geeze).
    ]],
-   homepage = "http://me.github.com/yilkalargaw/geezify-lua",
+   homepage = "http://github.com/yilkalargaw/geezify-lua",
    license = "MIT"
 }
 dependencies = {
