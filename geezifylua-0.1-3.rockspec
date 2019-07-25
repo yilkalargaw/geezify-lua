@@ -1,9 +1,8 @@
 package = "geezifylua"
-version = "0.1.2"
+version = "0.1.3"
 source = {
    url = "git://github.com/yilkalargaw/geezify-lua",
-   tag = "v1.0",
-   dir = "geezifylua0.1.2"
+   tag = "v0.1.3",
 }
 description = {
    summary = "A lua rock to convert numbers from geeze script to arabic and vice versa.",
