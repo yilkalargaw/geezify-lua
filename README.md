@@ -1,6 +1,6 @@
 # Geezify-Lua
 
-geezifylua is a luarock(i.e. package for the lua language) that converts geez-script numbers to arabic and viceversa.
+geezifylua is a luarock(i.e. package for the lua language) that converts geez-script numbers to arabic and viceversa. You could read more about the number system at [https://www.geez.org](https://www.geez.org/Numerals/)
 
 ## Installation
 
