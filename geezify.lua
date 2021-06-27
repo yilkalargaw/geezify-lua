@@ -42,22 +42,22 @@ function geezify.geezify(num)
 
    for i,v in ipairs(digarr) do
       if i==1 and v=='' then
-	 converted = converted
+         converted = converted
       else
-	 if converted==nil or converted == '' then
-	    converted = (converted or '') .. geezify.geezify_4digit(v)
-	 else
-	    converted = (converted or "") ..'፼'.. geezify.geezify_4digit(v)
-	 end
+         if converted==nil or converted == '' then
+            converted = (converted or '') .. geezify.geezify_4digit(v)
+         else
+            converted = (converted or "") ..'፼'.. geezify.geezify_4digit(v)
+         end
       end
    end
 
   local  geez_no =
      string.gsub(
-	string.gsub(
-	   string.gsub(converted,'፼፩፻', '፼፻')
-	   ,'^፩፼', '፼')
-	,'^(፩፻)', '፻')
+        string.gsub(
+           string.gsub(converted,'፼፩፻', '፼፻')
+           ,'^፩፼', '፼')
+        ,'^(፩፻)', '፻')
    return geez_no
 end
 
